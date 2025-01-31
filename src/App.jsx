@@ -40,6 +40,13 @@ function App() {
     });
   }
 
+  function resetGame() {
+    clearButtonColours()
+    setWins(0)
+    setLosses(0)
+    setTies(0)
+  }
+
   return (
     <>
       <div>
@@ -60,6 +67,7 @@ function App() {
               </button>
         ))}
       </div>
+      <button onClick={() => {resetGame()}}>Reset Game</button>
     </>
   )
 }
