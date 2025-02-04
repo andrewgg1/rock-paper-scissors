@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Vite",
+            "type": "shell",
+            "command": "npm run dev", // or "yarn dev" or "vite" depending on your setup
+            "isBackground": true, // this means the task continues running after it has been launched
+            "problemMatcher": {
+                "owner": "custom", // this can be anything
+                "pattern": {
+                    "regexp": ".", // this can be any regular expression
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".", // this can be any regular expression
+                    "endsPattern": ".*" // this can be any regular expression
+                }
+            }
+        }
+    ]
+}
