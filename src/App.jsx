@@ -7,7 +7,7 @@ function App() {
   const [losses, setLosses] = useState(0)
   const [ties, setTies] = useState(0)
 
-  function gameLogic(playerChoice, buttonId) {
+  function gameLogic(playerChoice) {
     clearButtonColours()
 
     const cpuChoice = choices[Math.floor(Math.random() * choices.length)]
@@ -16,7 +16,7 @@ function App() {
     // Tie
     if((playerChoice === cpuChoice)) {
       setTies(prevTies => prevTies + 1)
-      document.getElementById(buttonId).style.background='grey'
+      document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='grey'
       return
     }
     
@@ -25,13 +25,13 @@ function App() {
     ((playerChoice === choices[1]) && (cpuChoice === choices[0])) || 
     ((playerChoice === choices[2]) && (cpuChoice === choices[1]))) {
       setWins(prevWins => prevWins + 1)
-      document.getElementById(buttonId).style.background='green'
+      document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='green'
       return
     }
 
     // Lose
     setLosses(prevLosses => prevLosses + 1)
-    document.getElementById(buttonId).style.background='red'
+    document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='red'
   }
 
   function clearButtonColours() {
@@ -62,7 +62,7 @@ function App() {
           <button
             key={index}
             id={`${choice.toLowerCase()}Button`}
-            onClick={(e) => gameLogic(choice, e.target.id)}>
+            onClick={() => gameLogic(choice)}>
               {choice}
               </button>
         ))}
