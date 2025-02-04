@@ -50,25 +50,23 @@ function App() {
 
   return (
     <>
-      <div>
-      </div>
-      <h1>Rock, Paper, Scissors</h1>
-      <h2>
-        Wins: {wins}<br/>
-        Losses: {losses}<br/>
-        Ties: {ties}
-      </h2>
-      <div className="card">
-        {choices.map((choice, index) => (
-          <button
-            key={index}
-            id={`${choice.toLowerCase()}Button`}
-            onClick={() => gameLogic(choice)}>
-              {choice}
-              </button>
-        ))}
-      </div>
-      <button onClick={() => {resetGame()}}>Reset Game</button>
+    <h1>Rock, Paper, Scissors</h1>
+    <h2>
+      Wins: {wins}<br/>
+      Losses: {losses}<br/>
+      Ties: {ties}
+    </h2>
+    <div className="card">
+      {choices.map((choice, index) => (
+        <button
+          key={index}
+          id={`${choice.toLowerCase()}Button`}
+          onClick={() => gameLogic(choice)}>
+            {choice}
+        </button>
+      ))}
+    </div>
+    <button onClick={() => {resetGame()}}>Reset Game</button>
     </>
   )
 }
