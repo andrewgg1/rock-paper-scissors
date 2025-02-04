@@ -11,27 +11,28 @@ function App() {
     clearButtonColours()
 
     const cpuChoice = choices[Math.floor(Math.random() * choices.length)]
-    console.log(`playerChoice: ${playerChoice}    cpuChoice: ${cpuChoice}`)
-    
+    let outcome
     // Tie
     if((playerChoice === cpuChoice)) {
       setTies(prevTies => prevTies + 1)
       document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='grey'
-      return
+      outcome = 'Tie'
     }
-    
     // Win
-    if(((playerChoice === choices[0]) && (cpuChoice === choices[2])) || 
+    else if(((playerChoice === choices[0]) && (cpuChoice === choices[2])) || 
     ((playerChoice === choices[1]) && (cpuChoice === choices[0])) || 
     ((playerChoice === choices[2]) && (cpuChoice === choices[1]))) {
       setWins(prevWins => prevWins + 1)
       document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='green'
-      return
+      outcome = 'Win'
     }
-
     // Lose
-    setLosses(prevLosses => prevLosses + 1)
-    document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='red'
+    else {
+      setLosses(prevLosses => prevLosses + 1)
+      document.getElementById(`${playerChoice.toLowerCase()}Button`).style.background='red'
+      outcome = 'Lose'
+    }
+    console.log(`outcome: ${outcome}    playerChoice: ${playerChoice}    cpuChoice: ${cpuChoice}`)
   }
 
   function clearButtonColours() {
