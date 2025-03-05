@@ -73,3 +73,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Responsive adjustments only for mobile */
+@media (max-width: 768px) {
+  button {
+    font-size: 1.5em;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+  }
+}

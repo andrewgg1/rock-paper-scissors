@@ -66,7 +66,7 @@ function App() {
         </button>
       ))}
     </div>
-    <button onClick={() => {resetGame()}}>Reset Game</button>
+    <button className="resetButton" onClick={() => {resetGame()}}>Reset Game</button>
     </>
   )
 }
